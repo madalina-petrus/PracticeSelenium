@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 
 namespace Selenium
@@ -88,6 +89,46 @@ namespace Selenium
             WebDriver.Quit();
         }
 
+        public static void navigation(string name)
+        {
+            IWebDriver WebDriver = new ChromeDriver("D://internship//PracticeSelenium//PracticeSelenium//driver");
+            WebDriver.Manage().Window.Maximize();
+            WebDriver.Navigate().GoToUrl("http://qa2magento.dev.evozon.com/");
+            IList<IWebElement> headline = WebDriver.FindElements(By.CssSelector("#nav > ol>li"));
+            Console.WriteLine("Number of categorys: " + headline.Count());
+            foreach (var i in headline)
+                Console.WriteLine(i.Text);
+
+            foreach (var i in headline)
+                if (i.Text.Equals(name))
+                {
+                    i.Click();
+                    break;
+                }
+            WebDriver.Quit();
+
+        }
+
+        public static void addToCart()
+        {
+            IWebDriver WebDriver = new ChromeDriver("D://internship//PracticeSelenium//PracticeSelenium//driver");
+            WebDriver.Manage().Window.Maximize();
+            WebDriver.Navigate().GoToUrl("http://qa2magento.dev.evozon.com/");
+            //IWebElement page = WebDriver.FindElement(By.CssSelector("#nav > ol > li.level0.nav-4.active.parent > ul > li.level1.nav-4-1.first.active > a"));
+            //page.Click();
+            //page = WebDriver.FindElement(By.CssSelector("body > div > div > div.main - container.col2 - right - layout > div > div.col - main > div.category - products > ul > li:nth - child(3) > a"));
+            //page.Click();
+
+            IWebElement ele = WebDriver.FindElement(By.CssSelector("#nav > ol > li.level0.nav-3.active.parent > a"));
+            ele.Click();
+            //Actions action = new Actions(WebDriver);
+            //action.MoveToElement(ele).Perform();
+            IWebElement page = WebDriver.FindElement(By.CssSelector("#body > div > div > div.main-container.col1-layout > div > div.col-main > ul > li:nth-child(1) > a"));
+            page.Click();
+
+
+        }
+
         public static void Main(string[] args)
         {
 
@@ -95,8 +136,9 @@ namespace Selenium
             //account();
             //languages();
             //search();
-            newProductList();
-
+            //newProductList();
+            //navigation("MEN");
+            addToCart();
         }
     }
 }
