@@ -105,7 +105,7 @@ namespace Selenium
                     i.Click();
                     break;
                 }
-            WebDriver.Quit();
+            //WebDriver.Quit();
 
         }
 
@@ -137,8 +137,8 @@ namespace Selenium
             //languages();
             //search();
             //newProductList();
-            //navigation("MEN");
-            addToCart();
+            navigation("MEN");
+            //addToCart();
         }
     }
 }
