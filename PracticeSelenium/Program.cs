@@ -23,7 +23,7 @@ namespace Selenium
 
 
 
-            IWebElement logo = WebDriver.FindElement(By.CssSelector("#header > div > a > img.large"));
+            IWebElement logo = WebDriver.FindElement(By.CssSelector(".logo"));
             Console.WriteLine("Logo:" + logo);
             logo.Click();
             //for(int i=1;i<=1000;i++)
@@ -32,7 +32,7 @@ namespace Selenium
             //logo = WebDriver.FindElement(By.CssSelector("#header > div > a > img.large")); 
             //}
 
-            IWebElement page = WebDriver.FindElement(By.CssSelector("#nav > ol > li.level0.nav-1.first.parent > a"));
+            IWebElement page = WebDriver.FindElement(By.CssSelector(".nav-primary li.level0"));
             Console.WriteLine("Page:" + page);
             page.Click();
             WebDriver.Navigate().Back();
@@ -45,10 +45,10 @@ namespace Selenium
         {
             IWebDriver WebDriver = new ChromeDriver("D://internship//PracticeSelenium//PracticeSelenium//driver");
             WebDriver.Navigate().GoToUrl("http://qa1magento.dev.evozon.com");
-            IWebElement account = WebDriver.FindElement(By.CssSelector("#header > div > div.skip-links > div > a"));
+            IWebElement account = WebDriver.FindElement(By.CssSelector(".account-cart-wrapper"));
             Console.WriteLine("Account:" + account);
             account.Click();
-            WebDriver.Quit();
+            //WebDriver.Quit();
 
 
         }
@@ -81,7 +81,7 @@ namespace Selenium
             IWebDriver WebDriver = new ChromeDriver("D://internship//PracticeSelenium//PracticeSelenium//driver");
             WebDriver.Manage().Window.Maximize();
             WebDriver.Navigate().GoToUrl("http://qa2magento.dev.evozon.com/");
-            IList<IWebElement> newProductList= WebDriver.FindElements(By.CssSelector("body > div > div > div.main-container.col1-layout > div > div > div.std > div.widget.widget-new-products > div.widget-products >ul>li"));
+            IList<IWebElement> newProductList= WebDriver.FindElements(By.CssSelector(".widget-new-products .products-grid .item"));
             Console.WriteLine("Number of new products: " + newProductList.Count());
             foreach(var i in newProductList)
                 Console.WriteLine(i);
@@ -91,11 +91,11 @@ namespace Selenium
         public static void Main(string[] args)
         {
 
-            homepage();
+            //homepage();
             //account();
             //languages();
             //search();
-            //newProductList();
+            newProductList();
 
         }
     }
