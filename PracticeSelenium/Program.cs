@@ -94,7 +94,7 @@ namespace Selenium
             IWebDriver WebDriver = new ChromeDriver("D://internship//PracticeSelenium//PracticeSelenium//driver");
             WebDriver.Manage().Window.Maximize();
             WebDriver.Navigate().GoToUrl("http://qa2magento.dev.evozon.com/");
-            IList<IWebElement> headline = WebDriver.FindElements(By.CssSelector("#nav > ol>li"));
+            IList<IWebElement> headline = WebDriver.FindElements(By.CssSelector(".nav-primary"));
             Console.WriteLine("Number of categorys: " + headline.Count());
             foreach (var i in headline)
                 Console.WriteLine(i.Text);
@@ -105,7 +105,7 @@ namespace Selenium
                     i.Click();
                     break;
                 }
-            WebDriver.Quit();
+           // WebDriver.Quit();
 
         }
 
@@ -137,7 +137,8 @@ namespace Selenium
             //languages();
             //search();
             //newProductList();
-            navigation();
+            navigation("MEN");
+            //addToCart();
 
         }
     }
