@@ -91,11 +91,11 @@ namespace Selenium
         public static void Main(string[] args)
         {
 
-            //homepage();
+            homepage();
             //account();
             //languages();
             //search();
-            newProductList();
+            //newProductList();
 
         }
     }
