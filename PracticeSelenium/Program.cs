@@ -1,12 +1,16 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 
 namespace Selenium
 {
-    public static class Selenium
+
+
+    public  class Test
     {
-        public static void homepage()
+
+        public  void homepage()
         {
             IWebDriver WebDriver = new ChromeDriver("D://internship//PracticeSelenium//PracticeSelenium//driver");
             WebDriver.Navigate().GoToUrl("http://qa1magento.dev.evozon.com");
@@ -19,9 +23,6 @@ namespace Selenium
 
             string url = WebDriver.Url;
             Console.WriteLine("URL:  " + url);
-
-
-
 
             IWebElement logo = WebDriver.FindElement(By.CssSelector(".logo"));
             Console.WriteLine("Logo:" + logo);
@@ -38,7 +39,11 @@ namespace Selenium
             WebDriver.Navigate().Back();
             WebDriver.Navigate().Forward();
             WebDriver.Navigate().Refresh();
+            Console.WriteLine(WebDriver.Url);
             WebDriver.Quit();
+            
+
+         
         }
 
         public static void account()
@@ -130,16 +135,16 @@ namespace Selenium
 
         }
 
-        public static void Main(string[] args)
+       public static void Main(string[] args)
         {
 
-            //homepage();
+            homepage();
             //account();
             //languages();
             //search();
             //newProductList();
             //navigation("SALE");
-            addToCart();
+            //addToCart();
 
         }
     }
